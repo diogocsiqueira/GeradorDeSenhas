@@ -13,7 +13,6 @@ public class Screen extends javax.swing.JFrame {
     private final JCheckBox jCheckBox2 = new JCheckBox("Incluir letras minusculas");
     private final JCheckBox jCheckBox3 = new JCheckBox("Incluir números");
     private final JCheckBox jCheckBox4 = new JCheckBox("Incluir símbolos");
-    private final JButton jButton2 = new JButton("Copiar para a area de transferencia");
 
     public Screen() {
         setTitle("Gerador de Senhas");
@@ -62,7 +61,8 @@ public class Screen extends javax.swing.JFrame {
         add(jLabel1);
 
         // Botão para copiar para area de transferencia
-        jButton2.setBounds(250, 350, 100, 30);
+        JButton jButton2 = new JButton("Copiar");
+        jButton2.setBounds(400, 300, 100, 30);
         jButton2.addActionListener(this::copiarSenha);
         add(jButton2);
 
