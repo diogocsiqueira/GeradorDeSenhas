@@ -1,6 +1,7 @@
 package org.example;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class Screen extends javax.swing.JFrame {
@@ -8,6 +9,7 @@ public class Screen extends javax.swing.JFrame {
     PasswordGenerator pg = new PasswordGenerator();
 
     private final JLabel jLabel1 = new JLabel("Senha gerada:");
+    private final JLabel jLabel2 = new JLabel("");
     private final JTextField jTextField1 = new JTextField();
     private final JCheckBox jCheckBox1 = new JCheckBox("Incluir letras maiúsculas");
     private final JCheckBox jCheckBox2 = new JCheckBox("Incluir letras minusculas");
@@ -66,6 +68,16 @@ public class Screen extends javax.swing.JFrame {
         jButton2.addActionListener(this::copiarSenha);
         add(jButton2);
 
+        // Label exibir se a senha é forte ou fraca
+        jLabel2.setBounds(50, 380, 500, 30);
+        add(jLabel2);
+
+        // Label informações sobre força da senha
+        JLabel jLabel3 = new JLabel("Uma senha deve possuir pelo menos 1 de cada tipo de caractere e 8 ou mais digitos para ser forte");
+        jLabel3.setBounds(50, 430, 560, 30);
+        jLabel3.setForeground(Color.GRAY);
+        add(jLabel3);
+
         setVisible(true);
     }
 
@@ -84,6 +96,14 @@ public class Screen extends javax.swing.JFrame {
             }else {
                 passwordGenerated = pg.generatePassword(length, insertUppercase, insertLowercase, insertNumbers, insertSymbols);
                 jLabel1.setText(passwordGenerated);
+
+                if (pg.isStrong(passwordGenerated)){
+                    jLabel2.setText("Senha Forte");
+                    jLabel2.setForeground(Color.GREEN);
+                }else {
+                    jLabel2.setText("Senha Fraca");
+                    jLabel2.setForeground(Color.RED);
+                }
             }
 
         }catch (NumberFormatException e){
@@ -96,4 +116,6 @@ public class Screen extends javax.swing.JFrame {
     private void copiarSenha(ActionEvent actionEvent) {
         pg.copyPasswordToClipboard(jLabel1.getText());
     }
+
+
 }
