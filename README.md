@@ -4,7 +4,7 @@
 ![Swing](https://img.shields.io/badge/Swing-GUI-green)
 ![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
 
-Este é um aplicativo em Java para geração de senhas personalizadas. Ele permite criar senhas fortes com diferentes combinações de caracteres, como letras maiúsculas, minúsculas, números, símbolos e até emojis. 
+Este é um aplicativo em Java para geração de senhas personalizadas. Ele permite criar senhas fortes com diferentes combinações de caracteres, como letras maiúsculas, minúsculas, números e símbolos. 
 
 ## 🛠️ Funcionalidades
 - Defina o comprimento da senha.
